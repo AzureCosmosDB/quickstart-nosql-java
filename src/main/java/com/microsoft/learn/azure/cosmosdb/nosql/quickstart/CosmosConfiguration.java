@@ -11,17 +11,15 @@ import com.azure.spring.data.cosmos.config.AbstractCosmosConfiguration;
 import com.azure.spring.data.cosmos.config.CosmosConfig;
 import com.azure.spring.data.cosmos.repository.config.EnableCosmosRepositories;
 
-// <repository_configuration>
 @Configuration
 @EnableCosmosRepositories
 public class CosmosConfiguration extends AbstractCosmosConfiguration {
-// </repository_configuration>
 
     @Value("#{environment.AZURE_COSMOS_DB_NOSQL_ENDPOINT}")
     private String uri;
 
     @Bean
-    public CosmosClientBuilder getCosmosClientBuilder() {            
+    public CosmosClientBuilder getCosmosClientBuilder() {
         return new CosmosClientBuilder()
             .endpoint("<azure-cosmos-db-nosql-endpoint>")
             .key("<azure-cosmos-db-nosql-key>");
@@ -34,10 +32,8 @@ public class CosmosConfiguration extends AbstractCosmosConfiguration {
             .build();
     }
 
-    // <get_database>
     @Override
     protected String getDatabaseName() {
         return "cosmicworks";
     }
-    // </get_database>
 }
