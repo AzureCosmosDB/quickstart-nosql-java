@@ -51,7 +51,7 @@ jobs:
           shopt -s extglob
           rm -rf !(".devcontainer"|".github"|"LICENSE"|"readme.md")
       - name: Copy source to target
-        run: cp -ra source/src/web/. target/
+        run: cp -ra source/src/. target/
       - name: Change text content
         working-directory: target
         run: |
